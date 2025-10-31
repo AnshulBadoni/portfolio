@@ -47,7 +47,7 @@ const JavaScriptIcon = () => (
 )
 
 const JavaIcon = () => (
-    <svg fill="#001e22" height="60px" width="70px" version="1.1" id="Filled_Icons" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" enableBackground="new 0 0 24 24" xmlSpace="preserve"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Java-Filled"> <path d="M20,18c-2.21,0-4-1.79-4-4s1.79-4,4-4s4,1.79,4,4S22.21,18,20,18z M20,12c-1.1,0-2,0.9-2,2s0.9,2,2,2s2-0.9,2-2 S21.1,12,20,12z M13,6h-2V2h2V6z M10,6H8V0h2V6z M7,6H5V2h2V6z"></path> <path d="M9,23L9,23c-4.42,0-8-3.58-8-8V9h16v6C17,19.42,13.42,23,9,23z"></path> </g> </g></svg>
+    <svg fill="#001e22" version="1.1" id="Filled_Icons" xmlns="http://www.w3.org/2000/svg" xmlnsXlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 24 24" enableBackground="new 0 0 24 24" xmlSpace="preserve"><g id="SVGRepo_bgCarrier" strokeWidth="0"></g><g id="SVGRepo_tracerCarrier" strokeLinecap="round" strokeLinejoin="round"></g><g id="SVGRepo_iconCarrier"> <g id="Java-Filled"> <path d="M20,18c-2.21,0-4-1.79-4-4s1.79-4,4-4s4,1.79,4,4S22.21,18,20,18z M20,12c-1.1,0-2,0.9-2,2s0.9,2,2,2s2-0.9,2-2 S21.1,12,20,12z M13,6h-2V2h2V6z M10,6H8V0h2V6z M7,6H5V2h2V6z"></path> <path d="M9,23L9,23c-4.42,0-8-3.58-8-8V9h16v6C17,19.42,13.42,23,9,23z"></path> </g> </g></svg>
 )
 
 const VercelIcon = () => (

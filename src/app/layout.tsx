@@ -14,7 +14,7 @@ const spaceGrotesk = Space_Grotesk({
 });
 
 export const metadata: Metadata = {
-  title: 'Portfolio | Creative  Developer',
+  title: 'Portfolio | Software Engineer',
   description: 'Engineer creating digital experiences that matter',
 };
 

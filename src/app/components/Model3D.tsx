@@ -1,15 +1,7 @@
 'use client';
 
-import {
-    Suspense,
-    useEffect,
-    useState,
-    useRef
-} from 'react';
-import {
-    Canvas,
-    useFrame
-} from '@react-three/fiber';
+import { Suspense, useEffect, useState, useRef } from 'react';
+import { Canvas, useFrame } from '@react-three/fiber';
 import {
     OrbitControls,
     useGLTF,
@@ -17,22 +9,22 @@ import {
     PerspectiveCamera,
 } from '@react-three/drei';
 import { ErrorBoundary } from 'react-error-boundary';
+import * as THREE from 'three';
 
 // -----------------------------------------------------------
-// Enhanced animated fallback with glow effect
+// Enhanced animated fallback with glow effect (CORRECTED)
 // -----------------------------------------------------------
 function CoolFallback() {
-    const meshRef = useRef();
+    const meshRef = useRef<THREE.Mesh>(null);
     const time = useRef(0);
 
     useFrame(() => {
         time.current += 0.05;
         if (meshRef.current) {
-            // Pulsing effect: scale and emissive intensity
             const pulse = 1 + Math.sin(time.current) * 0.1;
             const glow = 0.5 + Math.sin(time.current * 2) * 0.5;
             meshRef.current.scale.set(pulse, pulse, pulse);
-            meshRef.current.material.emissiveIntensity = glow;
+            (meshRef.current.material as THREE.MeshStandardMaterial).emissiveIntensity = glow;
         }
     });
 
@@ -64,11 +56,9 @@ function ModelError({ error }: { error: Error }) {
 }
 
 // -----------------------------------------------------------
-// 3D Model component 
-// The second argument `true` tells drei to **preload** the model
+// 3D Model component
 // -----------------------------------------------------------
-function Model({ scale } : { scale: number }) {
-    // Preload the model so it is cached and does not disappear
+function Model({ scale }: { scale: number }) {
     const { scene } = useGLTF('/anshul.glb', true);
     return (
         <primitive
@@ -83,11 +73,8 @@ function Model({ scale } : { scale: number }) {
 export default function Model3D() {
     const [scale, setScale] = useState(7);
 
-    // On iOS we do NOT render the Canvas until the user taps.
-    // This respects Safari’s rule that a WebGL context can be created only
-    // after a user interaction.
     const [showCanvas, setShowCanvas] = useState(
-        !/iPhone|iPad|iPod/i.test(navigator.userAgent) // false on iOS → show button
+        !/iPhone|iPad|iPod/i.test(navigator.userAgent)
     );
 
     useEffect(() => {
@@ -105,14 +92,10 @@ export default function Model3D() {
         return () => window.removeEventListener('resize', handleResize);
     }, []);
 
-    // Detect if the user is on a mobile device
     const isMobile = /iPhone|iPad|iPod|Android/i.test(navigator.userAgent);
 
     return (
         <div className="w-full h-[400px] sm:h-[500px] md:h-[600px] relative">
-            {/* -----------------------------------------------------------
-       // Tap button – required on iOS Safari
-       // ----------------------------------------------------------- */}
             {!showCanvas && (
                 <div className="absolute inset-0 flex items-center justify-center bg-gray-50">
                     <button
@@ -126,10 +109,8 @@ export default function Model3D() {
 
             {showCanvas && (
                 <Canvas>
-                    {/* Increase the far plane so the model stays visible when it rotates */}
                     <PerspectiveCamera makeDefault position={[0, 0, 5]} far={10000} />
 
-                    {/* Lights */}
                     <ambientLight intensity={1} />
                     <directionalLight position={[10, 10, 5]} intensity={1} castShadow />
                     <directionalLight position={[-10, -10, -5]} intensity={0.5} />
@@ -142,13 +123,8 @@ export default function Model3D() {
                         blur={0.5}
                     />
 
-                    {/* -----------------------------------------------------------
-           // Error handling + loading indicator
-           // ----------------------------------------------------------- */}
                     <ErrorBoundary FallbackComponent={ModelError}>
-                        <Suspense
-                            fallback={<CoolFallback />}
-                        >
+                        <Suspense fallback={<CoolFallback />}>
                             <Model scale={scale} />
                         </Suspense>
                     </ErrorBoundary>
