@@ -67,10 +67,10 @@ export default function Projects() {
                             </div>
                             <div className="flex flex-col gap-1">
                                 <span className="font-roobert text-2xl sm:text-3xl font-medium text-rich-black">
-                                    100%
+                                    1.5 + Y
                                 </span>
                                 <span className="text-xs text-midnight-green-70 uppercase tracking-wide">
-                                    Success
+                                    experience
                                 </span>
                             </div>
                         </div>
@@ -136,7 +136,7 @@ export default function Projects() {
                                         <div className="flex flex-col gap-2 sm:gap-3">
                                             <div className="flex items-center gap-2 sm:gap-3">
                                                 <div className="bg-[#ff8060] text-white px-2 sm:px-3 py-0.5 sm:py-1 rounded text-[10px] sm:text-xs font-medium">
-                                                    [{index + 1 }]
+                                                    [{index + 1}]
                                                 </div>
                                                 <span className="text-[10px] sm:text-xs font-medium text-midnight-green-70 uppercase tracking-wide">
                                                     {project.category}

@@ -54,7 +54,7 @@ export default function LoadingScreen({ onLoadingComplete }: { onLoadingComplete
                         {greetings[currentIndex].text}
                     </h1>
                 </div>
-                <p className="text-sm text-midnight-green-70 font-medium">
+                <p className="text-sm text-gray-400 font-medium">
                     {greetings[currentIndex].lang}
                 </p>
 
