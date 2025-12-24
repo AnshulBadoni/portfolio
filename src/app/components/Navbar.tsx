@@ -9,7 +9,7 @@ const PelloniumLogo = () => {
     return (
         <img
             src="logo.png"
-            alt="Pellonium logo"
+            alt="Anshul"
             width={30}
             height={30}
             className="inline-block"
