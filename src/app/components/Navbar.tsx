@@ -8,7 +8,7 @@ import Image from 'next/image';
 const PelloniumLogo = () => {
     return (
         <img
-            src="https://copilot.microsoft.com/th/id/BCO.b20be720-8c3a-44b0-8215-95bf4e13ca00.png"
+            src="logo.png"
             alt="Pellonium logo"
             width={30}
             height={30}
